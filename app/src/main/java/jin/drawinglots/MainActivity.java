@@ -3,15 +3,19 @@ package jin.drawinglots;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
+import android.widget.TextView;
 
-import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.Random;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     ImageButton imagebutton,imagebutton2,imagebutton3,imagebutton4;
-    int ex[] = new int[4];
+    Button button;
+    TextView result_msg;
+    int randomNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,56 +23,46 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
        imagebutton  = (ImageButton) findViewById(R.id.imageButton);
-        imagebutton2  = (ImageButton) findViewById(R.id.imageButton);
-        imagebutton3  = (ImageButton) findViewById(R.id.imageButton);
-        imagebutton4  = (ImageButton) findViewById(R.id.imageButton);
+        imagebutton2  = (ImageButton) findViewById(R.id.imageButton2);
+        imagebutton3  = (ImageButton) findViewById(R.id.imageButton3);
+        imagebutton4  = (ImageButton) findViewById(R.id.imageButton4);
+        button = (Button)findViewById(R.id.button);
+        result_msg = (TextView)findViewById(R.id.result_msg);
+        randomNumber = new Random().nextInt(4)+1;
+
+        imagebutton.setOnClickListener(this);
+        imagebutton2.setOnClickListener(this);
+        imagebutton3.setOnClickListener(this);
+        imagebutton4.setOnClickListener(this);
+        button.setOnClickListener(this);
+
     }
 
-    public void randomNumber(int number) {
-        ArrayList<Object> randomList = new ArrayList<Object>();
 
-        int random = (int) ((Math.random() * 10)) % number;
+    @Override
+    public void onClick(View v) {
 
-        randomList.add(random);
+        int n = 0;
 
-        for (int i = 0; i < number - 1; i++) {
-            while (randomList.contains(random)) {
-                random = (int) ((Math.random() * 10)) % number;
+        switch (v.getId()){
+            case R.id.imageButton: n=1; break;
+            case R.id.imageButton2: n=2; break;
+            case R.id.imageButton3: n=3; break;
+            case R.id.imageButton4: n=4; break;
+            case R.id.button: n=0; break;
+        }
+
+        if(n==0){
+            randomNumber = new Random().nextInt(4)+1;
+            button.setVisibility(Button.INVISIBLE);
+            result_msg.setText("두두두두둥~");
+        }else{
+            if(randomNumber == n){
+                result_msg.setText("당첨~!");
+                button.setVisibility(Button.VISIBLE);
+            }else{
+                result_msg.setText("패스~!");
             }
-            randomList.add(random);
-        }
-        for(int j=0;j<number;j++){
-            ex[j] = (int) randomList.get(j);
-        }
-    }
-
-    public void onClicked(View v){
-        if(ex[0]==0) {
-            Toast.makeText(getApplicationContext(), "당첨", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(getApplicationContext(), "꽝", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void on2Clicked(View v){
-        if(ex[1]==0) {
-            Toast.makeText(getApplicationContext(), "당첨", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(getApplicationContext(), "꽝", Toast.LENGTH_SHORT).show();
-        }
-    }
-    public void on3Clicked(View v){
-        if(ex[2]==0) {
-            Toast.makeText(getApplicationContext(), "당첨", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(getApplicationContext(), "꽝", Toast.LENGTH_SHORT).show();
-        }
-    }
-    public void on4Clicked(View v){
-        if(ex[3]==0) {
-            Toast.makeText(getApplicationContext(), "당첨", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(getApplicationContext(), "꽝", Toast.LENGTH_SHORT).show();
         }
     }
 }

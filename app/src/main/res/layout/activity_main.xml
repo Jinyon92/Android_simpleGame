@@ -12,9 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
-        android:text="랜덤 당첨기!"
-        android:textSize="30dp"
         android:gravity="center"
+        android:text="랜덤 당첨기!"
+        android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -27,60 +27,88 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:onClick="onClicked"
         app:layout_constraintBottom_toTopOf="@+id/imageButton3"
         app:layout_constraintHorizontal_bias="0.421"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/imageButton2"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.581"
-        app:srcCompat="@android:drawable/ic_menu_help"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        app:srcCompat="@android:drawable/ic_menu_help" />
 
     <ImageButton
         android:id="@+id/imageButton2"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginRight="54dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginRight="51dp"
         android:layout_marginTop="8dp"
-        android:onClick="on2Clicked"
         app:layout_constraintBottom_toTopOf="@+id/imageButton4"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.581"
-        app:srcCompat="@android:drawable/ic_menu_help"
-        android:layout_marginEnd="54dp" />
+        app:srcCompat="@android:drawable/ic_menu_help" />
 
     <ImageButton
         android:id="@+id/imageButton3"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginBottom="121dp"
-        android:layout_marginLeft="56dp"
-        android:onClick="on3Clicked"
+        android:layout_marginLeft="75dp"
+        android:layout_marginStart="56dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_help"
-        android:layout_marginStart="56dp" />
+        app:srcCompat="@android:drawable/ic_menu_help" />
 
     <ImageButton
         android:id="@+id/imageButton4"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginBottom="121dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:onClick="on4Clicked"
+        android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.616"
         app:layout_constraintLeft_toRightOf="@+id/imageButton3"
         app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_help"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        app:srcCompat="@android:drawable/ic_menu_help" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:text="재시작"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.025" />
+
+    <TextView
+        android:id="@+id/result_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:text="결과"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_bias="0.864" />
 </android.support.constraint.ConstraintLayout>
