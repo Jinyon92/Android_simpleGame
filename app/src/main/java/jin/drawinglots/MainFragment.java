@@ -40,7 +40,8 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         imagebutton2 = (ImageButton) rootView.findViewById(R.id.imageButton2);
         imagebutton3 = (ImageButton) rootView.findViewById(R.id.imageButton3);
         imagebutton4 = (ImageButton) rootView.findViewById(R.id.imageButton4);
-        imagebutton5 = (ImageButton) rootView.findViewById(R.id.imageButton4);
+        imagebutton5 = (ImageButton) rootView.findViewById(R.id.imageButton5);
+
         button = (Button) rootView.findViewById(R.id.button);
         result_msg = (TextView) rootView.findViewById(R.id.result_msg);
         randomNumber = new Random().nextInt(4) + 1;
