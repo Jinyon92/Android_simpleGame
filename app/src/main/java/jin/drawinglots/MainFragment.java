@@ -42,9 +42,9 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         imagebutton4 = (ImageButton) rootView.findViewById(R.id.imageButton4);
         imagebutton5 = (ImageButton) rootView.findViewById(R.id.imageButton5);
 
+
         button = (Button) rootView.findViewById(R.id.button);
         result_msg = (TextView) rootView.findViewById(R.id.result_msg);
-        randomNumber = new Random().nextInt(4) + 1;
 
         imagebutton.setOnClickListener(this);
         imagebutton2.setOnClickListener(this);
@@ -52,7 +52,6 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         imagebutton4.setOnClickListener(this);
         imagebutton5.setOnClickListener(this);
         button.setOnClickListener(this);
-
 
         return rootView;
     }
@@ -62,6 +61,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         if(radioButton.isChecked()){
             int n = 0;
+            randomNumber = new Random().nextInt(3) + 1;
             imagebutton4.setVisibility(ImageButton.INVISIBLE);
             imagebutton5.setVisibility(ImageButton.INVISIBLE);
             switch (v.getId()) {
@@ -87,13 +87,14 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                 if (randomNumber == n) {
                     result_msg.setText("당첨~!");
                     button.setVisibility(Button.VISIBLE);
-                } else {
+                } else  {
                     result_msg.setText("패스~!");
                 }
             }
         }
         else if (radioButton2.isChecked()) {
             int n = 0;
+            randomNumber = new Random().nextInt(4) + 1;
             imagebutton4.setVisibility(ImageButton.VISIBLE);
             imagebutton5.setVisibility(ImageButton.INVISIBLE);
             switch (v.getId()) {
@@ -128,6 +129,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             }
         }else if(radioButton3.isChecked()){
             int n = 0;
+            randomNumber = new Random().nextInt(5) + 1;
             imagebutton4.setVisibility(ImageButton.VISIBLE);
             imagebutton5.setVisibility(ImageButton.VISIBLE);
             switch (v.getId()) {
