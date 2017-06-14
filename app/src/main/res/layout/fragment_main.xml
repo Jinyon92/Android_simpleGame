@@ -61,6 +61,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:tag="1"
         app:layout_constraintBottom_toTopOf="@+id/imageButton3"
         app:layout_constraintHorizontal_bias="0.298"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -77,6 +78,7 @@
         android:layout_marginEnd="54dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:tag="2"
         app:layout_constraintBottom_toTopOf="@+id/imageButton4"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
@@ -87,6 +89,7 @@
         android:id="@+id/imageButton3"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:tag="3"
         android:layout_marginBottom="121dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:srcCompat="@android:drawable/ic_menu_help"
@@ -97,6 +100,7 @@
         android:id="@+id/imageButton4"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:tag="4"
         android:layout_marginBottom="121dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
@@ -116,6 +120,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:tag="6"
         android:text="재시작"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -144,6 +149,7 @@
         android:id="@+id/imageButton5"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:tag="5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -154,14 +160,5 @@
         android:layout_marginRight="8dp"
         android:layout_marginLeft="8dp"
         app:layout_constraintVertical_bias="0.329" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="인원수를 누르고 재시작눌러주세요!"
-        tools:layout_editor_absoluteY="122dp"
-        android:layout_marginRight="16dp"
-        app:layout_constraintRight_toRightOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

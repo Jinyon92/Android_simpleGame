@@ -42,7 +42,6 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         imagebutton4 = (ImageButton) rootView.findViewById(R.id.imageButton4);
         imagebutton5 = (ImageButton) rootView.findViewById(R.id.imageButton5);
 
-
         button = (Button) rootView.findViewById(R.id.button);
         result_msg = (TextView) rootView.findViewById(R.id.result_msg);
 
@@ -53,119 +52,79 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         imagebutton5.setOnClickListener(this);
         button.setOnClickListener(this);
 
+
+        radioGroup.setOnClickListener(radioClick);
+        radioButton.setOnClickListener(radioClick);
+        radioButton2.setOnClickListener(radioClick);
+        radioButton3.setOnClickListener(radioClick);
+
         return rootView;
     }
 
+    public View.OnClickListener radioClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if(radioButton.isChecked()){
+                randomNumber = new Random().nextInt(3)+1;
+
+                imagebutton5.setVisibility(View.INVISIBLE);
+                imagebutton4.setVisibility(View.INVISIBLE);
+            }else if(radioButton2.isChecked()){
+                randomNumber = new Random().nextInt(4)+1;
+
+                imagebutton5.setVisibility(View.INVISIBLE);
+                imagebutton4.setVisibility(View.VISIBLE);
+            }else if(radioButton3.isChecked()){
+                randomNumber = new Random().nextInt(5)+1;
+
+                imagebutton5.setVisibility(View.VISIBLE);
+                imagebutton4.setVisibility(View.VISIBLE);
+            }
+        }
+    };
 
     @Override
     public void onClick(View v) {
+        int n = Integer.parseInt(v.getTag().toString());
         if(radioButton.isChecked()){
-            int n = 0;
-            randomNumber = new Random().nextInt(3) + 1;
-            imagebutton4.setVisibility(ImageButton.INVISIBLE);
-            imagebutton5.setVisibility(ImageButton.INVISIBLE);
-            switch (v.getId()) {
-                case R.id.imageButton:
-                    n = 1;
-                    break;
-                case R.id.imageButton2:
-                    n = 2;
-                    break;
-                case R.id.imageButton3:
-                    n = 3;
-                    break;
-                case R.id.button:
-                    n = 0;
-                    break;
-            }
-
-            if (n == 0) {
+            if (n == 6) {
                 randomNumber = new Random().nextInt(3) + 1;
                 button.setVisibility(Button.INVISIBLE);
-                result_msg.setText("두두두두둥~");
+                result_msg.setText("결과");
             } else {
                 if (randomNumber == n) {
-                    result_msg.setText("당첨~!");
+                    result_msg.setText("당첨!");
                     button.setVisibility(Button.VISIBLE);
-                } else  {
-                    result_msg.setText("패스~!");
+                } else {
+                    result_msg.setText("꽝!");
                 }
             }
-        }
-        else if (radioButton2.isChecked()) {
-            int n = 0;
-            randomNumber = new Random().nextInt(4) + 1;
-            imagebutton4.setVisibility(ImageButton.VISIBLE);
-            imagebutton5.setVisibility(ImageButton.INVISIBLE);
-            switch (v.getId()) {
-                case R.id.imageButton:
-                    n = 1;
-                    break;
-                case R.id.imageButton2:
-                    n = 2;
-                    break;
-                case R.id.imageButton3:
-                    n = 3;
-                    break;
-                case R.id.imageButton4:
-                    n = 4;
-                    break;
-                case R.id.button:
-                    n = 0;
-                    break;
-            }
-
-            if (n == 0) {
+        }else if(radioButton2.isChecked()){
+            if (n == 6) {
                 randomNumber = new Random().nextInt(4) + 1;
                 button.setVisibility(Button.INVISIBLE);
-                result_msg.setText("두두두두둥~");
+                result_msg.setText("결과");
             } else {
                 if (randomNumber == n) {
-                    result_msg.setText("당첨~!");
+                    result_msg.setText("당첨!");
                     button.setVisibility(Button.VISIBLE);
                 } else {
-                    result_msg.setText("패스~!");
+                    result_msg.setText("꽝!");
                 }
             }
-        }else if(radioButton3.isChecked()){
-            int n = 0;
-            randomNumber = new Random().nextInt(5) + 1;
-            imagebutton4.setVisibility(ImageButton.VISIBLE);
-            imagebutton5.setVisibility(ImageButton.VISIBLE);
-            switch (v.getId()) {
-                case R.id.imageButton:
-                    n = 1;
-                    break;
-                case R.id.imageButton2:
-                    n = 2;
-                    break;
-                case R.id.imageButton3:
-                    n = 3;
-                    break;
-                case R.id.imageButton4:
-                    n = 4;
-                    break;
-                case R.id.imageButton5:
-                    n = 5;
-                    break;
-                case R.id.button:
-                    n = 0;
-                    break;
-            }
-
-            if (n == 0) {
+        } else if(radioButton3.isChecked()) {
+            if (n == 6) {
                 randomNumber = new Random().nextInt(5) + 1;
                 button.setVisibility(Button.INVISIBLE);
-                result_msg.setText("두두두두둥~");
+                result_msg.setText("결과");
             } else {
                 if (randomNumber == n) {
-                    result_msg.setText("당첨~!");
+                    result_msg.setText("당첨!");
                     button.setVisibility(Button.VISIBLE);
                 } else {
-                    result_msg.setText("패스~!");
+                    result_msg.setText("꽝!");
                 }
             }
         }
     }
-
 }
