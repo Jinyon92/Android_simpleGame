@@ -30,7 +30,6 @@ public class MainRockscissorspaper extends Fragment implements View.OnClickListe
     RadioGroup radgroup;
     RadioButton onewinbutton, twowinbutton;
     boolean first = true;
-    boolean anrWlQk = true;
     boolean win = false;
     boolean lose = false;
     boolean draw = false;
@@ -75,7 +74,6 @@ public class MainRockscissorspaper extends Fragment implements View.OnClickListe
                 boolean win = false;
                 boolean lose = false;
                 boolean draw = false;
-                boolean anrWlQk = true;
             }
         }
     };
@@ -119,11 +117,15 @@ public class MainRockscissorspaper extends Fragment implements View.OnClickListe
                 rockscissorspaper_Win();
             }
         } else if (twowinbutton.isChecked()) {
-            while(anrWlQk) {
-                if (n == 4) {
-                    mHandler.sendEmptyMessage(0);
-                    resultmsg.setText("과연~");
-                } else if (n == 0) {
+            if (n == 4) {
+                first = true;
+                win = false;
+                lose = false;
+                draw = false;
+                mHandler.sendEmptyMessage(0);
+                resultmsg.setText("과연~");
+            }
+                if (n == 0) {
                     if(first) {
                         one_Win(imageArray[j], 0);
                         rockscissorspaper_Win();
@@ -146,7 +148,7 @@ public class MainRockscissorspaper extends Fragment implements View.OnClickListe
                     }
                 }
             }
-        }
+
 
     }
 
@@ -210,43 +212,46 @@ public class MainRockscissorspaper extends Fragment implements View.OnClickListe
         if (win) {
             if (computer == imageArray[0]) {
                 if (player == 0) {
-                    anrWlQk = false;
                     mHandler.removeMessages(0);
                     resultmsg.setText("이겼습니다!");
                 } else if (player == 1) {
                     win = false;
                     lose = true;
                     draw = false;
+                    resultmsg.setText("현재상태 :패!");
                 } else if (player == 2) {
                     win = true;
                     lose = false;
                     draw = false;
+                    resultmsg.setText("현재상태 :승!");
                 }
             } else if (computer == imageArray[1]) {
                 if (player == 0) {
                     win = true;
                     lose = false;
                     draw = false;
+                    resultmsg.setText("현재상태 :승!");
                 } else if (player == 1) {
-                    anrWlQk =false;
                     mHandler.removeMessages(0);
                     resultmsg.setText("이겼습니다!");
                 } else if (player == 2) {
                     win = false;
                     lose = true;
                     draw = false;
+                    resultmsg.setText("현재상태 :패!");
                 }
             } else if (computer == imageArray[2]) {
                 if (player == 0) {
                     win = false;
                     lose = true;
                     draw = false;
+                    resultmsg.setText("현재상태 :패!");
                 } else if (player == 1) {
                     win = true;
                     lose = false;
                     draw = false;
+                    resultmsg.setText("현재상태 :승!");
                 } else if (player == 2) {
-                    anrWlQk =false;
                     mHandler.removeMessages(0);
                     resultmsg.setText("이겼습니다!");
                 }
@@ -254,43 +259,46 @@ public class MainRockscissorspaper extends Fragment implements View.OnClickListe
         }else if(lose){
             if (computer == imageArray[0]){
                 if (player == 0) {
-                    anrWlQk =false;
                     mHandler.removeMessages(0);
                     resultmsg.setText("졌습니다!");
                 } else if (player == 1) {
                     win = false;
                     lose = true;
                     draw = false;
+                    resultmsg.setText("현재상태 :패!");
                 } else if (player == 2) {
                     win = true;
                     lose = false;
                     draw = false;
+                    resultmsg.setText("현재상태 :승!");
                 }
             } else if (computer == imageArray[1]) {
                 if (player == 0) {
                     win = true;
                     lose = false;
                     draw = false;
+                    resultmsg.setText("현재상태 :승!");
                 } else if (player == 1) {
-                    anrWlQk =false;
                     mHandler.removeMessages(0);
                     resultmsg.setText("졌습니다!");
                 } else if (player == 2) {
                     win = false;
                     lose = true;
                     draw = false;
+                    resultmsg.setText("현재상태 :패!");
                 }
             } else if (computer == imageArray[2]) {
                 if (player == 0) {
                     win = false;
                     lose = true;
                     draw = false;
+                    resultmsg.setText("현재상태 :패!");
                 } else if (player == 1) {
                     win = true;
                     lose = false;
                     draw = false;
+                    resultmsg.setText("현재상태 :승!");
                 } else if (player == 2) {
-                    anrWlQk =false;
                     mHandler.removeMessages(0);
                     resultmsg.setText("졌습니다!");
                 }
@@ -299,39 +307,51 @@ public class MainRockscissorspaper extends Fragment implements View.OnClickListe
         }else if(draw){
             if (computer == imageArray[0]){
                 if (player == 0) {
+                    win = false;
                     draw = true;
+                    lose = false;
                 } else if (player == 1) {
                     win = false;
                     lose = true;
                     draw = false;
+                    resultmsg.setText("현재상태 :패!");
                 } else if (player == 2) {
                     win = true;
                     lose = false;
                     draw = false;
+                    resultmsg.setText("현재상태 :승!");
                 }
             } else if (computer == imageArray[1]) {
                 if (player == 0) {
                     win = true;
                     lose = false;
                     draw = false;
+                    resultmsg.setText("현재상태 :승!");
                 } else if (player == 1) {
                     draw = true;
+                    win = false;
+                    lose = false;
                 } else if (player == 2) {
                     win = false;
                     lose = true;
                     draw = false;
+                    resultmsg.setText("현재상태 :패!");
                 }
             } else if (computer == imageArray[2]) {
                 if (player == 0) {
                     win = false;
                     lose = true;
                     draw = false;
+                    resultmsg.setText("현재상태 :패!");
                 } else if (player == 1) {
                     win = true;
                     lose = false;
                     draw = false;
+                    resultmsg.setText("현재상태 :승!");
                 } else if (player == 2) {
                     draw = true;
+                    win = false;
+                    lose = false;
                 }
             }
         }
