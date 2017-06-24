@@ -114,4 +114,33 @@
         android:layout_marginRight="8dp"
         android:layout_marginLeft="8dp" />
 
+    <RadioGroup
+        android:id="@+id/radgroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/onewinbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="가위바위보"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <RadioButton
+            android:id="@+id/twowinbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="묵찌빠"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/onewinbutton" />
+
+    </RadioGroup>
+
 </android.support.constraint.ConstraintLayout >
